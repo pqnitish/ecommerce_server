@@ -18,8 +18,11 @@ app.use(router);
 
 const port =process.env.PORT || 8000;
 
-app.listen(port, ()=>{
+const server = app.listen(port, ()=>{
+
     console.log(`server is running on port number ${port}`);
 });
+server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;
 
 DefaultData()
